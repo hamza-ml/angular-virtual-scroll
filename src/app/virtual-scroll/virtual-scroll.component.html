@@ -1,0 +1,30 @@
+<section class="main-wrapper">
+  <section>
+    <h2 class="main-header">
+      Angular Virtual Scroll - Fetch Next Values on Demand
+    </h2>
+    <h4 class="total-items">Total Items: {{ totalRecords }}</h4>
+  </section>
+
+  <section>
+    <cdk-virtual-scroll-viewport
+      #cdkScroller
+      itemSize="40"
+      class="cdk-viewport"
+    >
+      <div>
+        <ul>
+          <li class="list-item" *cdkVirtualFor="let item of items">
+            {{ "Item # " + item }}
+          </li>
+        </ul>
+        <mat-progress-spinner
+          class="spinner"
+          [diameter]="'50'"
+          *ngIf="bottomLoading"
+          [mode]="'indeterminate'"
+        ></mat-progress-spinner>
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </section>
+</section>
